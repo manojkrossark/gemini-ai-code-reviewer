@@ -307,8 +307,7 @@ def main():
     event_data = json.load(open(os.environ["GITHUB_EVENT_PATH"], "r"))
 
     event_name = os.environ.get("GITHUB_EVENT_NAME")
-   if event_name == "pull_request" and event_action in ["opened", "synchronize", "reopened"]:
-
+    if event_name == "pull_request" and event_action in ["opened", "synchronize", "reopened"]:
         diff = get_diff(pr_details.owner, pr_details.repo, pr_details.pull_number)
         if not diff:
             print("There is no diff found")
