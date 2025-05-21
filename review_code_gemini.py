@@ -255,7 +255,7 @@ def create_review_comment(
     try:
         # Create the review with only the required fields
         review = pr.create_review(
-            body="Gemini AI Code Reviewer Comments",
+            body="Krossark Reviewer Comments",
             comments=comments,
             event="COMMENT"
         )
