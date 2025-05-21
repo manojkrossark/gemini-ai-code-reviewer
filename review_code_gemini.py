@@ -307,11 +307,7 @@ def main():
     event_data = json.load(open(os.environ["GITHUB_EVENT_PATH"], "r"))
 
     event_name = os.environ.get("GITHUB_EVENT_NAME")
-    if event_name == "issue_comment":
-        # Process comment trigger
-        if not event_data.get("issue", {}).get("pull_request"):
-            print("Comment was not on a pull request")
-            return
+   if event_name == "pull_request" and event_action in ["opened", "synchronize", "reopened"]:
 
         diff = get_diff(pr_details.owner, pr_details.repo, pr_details.pull_number)
         if not diff:
